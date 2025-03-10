@@ -108,6 +108,7 @@ input[name="slide"] {
 }
 /* 슬라이드 끝 */
 
+
 /* B모듈 모토 시작 */
 #moto-container {
     width: 100%;
@@ -209,7 +210,7 @@ button:disabled {
     background: white;
     padding: 20px;
     max-width: 1000px;
-    max-height: 800px;
+    max-height: 1000px;
     overflow: auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
@@ -235,12 +236,24 @@ button:disabled {
     height: 200px;
   }
 
+  #order-area{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+  }
+
   #order-area img{
     height: 200px;
+    width: 200px;
   }
   
   .product.dragged {
     opacity: 0.5;
+  }
+
+  #payment{
+    margin-top: 130px;
   }
 
 /* B모듈 전체 상품 페이지 끝 */
