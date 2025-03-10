@@ -1,131 +1,111 @@
-// 모든 이미지에 마우스를 올렸을 때 동적으로 div를 생성하도록 이벤트 추가
-document.querySelectorAll('.motos').forEach(motos => {
-    motos.addEventListener('mouseenter', function() {
-        // 이미지에서 data-image-url 속성으로 이미지 URL을 받아옴
-        const motosUrl = motos.getAttribute('data-image-url');
-
-        // 새로운 div 요소 생성
-        const newDiv = document.createElement('div');
-
-        // div 스타일 설정
-        newDiv.style.width = '1620px';  // 너비 설정
-        newDiv.style.height = '700px'; // 높이 설정
-        newDiv.style.backgroundImage = `url(${motosUrl})`;  // 동적으로 받은 URL로 배경 이미지 설정
-        newDiv.style.backgroundSize = 'cover';  // 이미지가 div에 맞게 덮어지도록 설정
-        newDiv.style.backgroundPosition = 'center'; // 이미지 위치 중앙으로 설정
-        newDiv.style.position = 'absolute';
-        // newDiv.style.zIndex = '11230';
-
-        motos.style.display = 'hidden';
-
-        // div를 container에 추가
-        document.getElementById('moto-container').appendChild(newDiv);
+const motos = document.querySelectorAll('.motos');
+        
+motos.forEach(moto => {
+    moto.addEventListener('mouseenter', () => {
+        const image = moto.getAttribute('data-image-url');
+        motos.forEach((b, index) => {
+            b.style.backgroundImage = `url(${image})`;
+            b.style.backgroundPosition = `-${index * 300}px center`;
+        });
     });
-
-    motos.addEventListener('mouseleave', function() {
-        // 마우스가 떠날 때 새로운 div를 삭제
-        const motoContainer = document.getElementById('moto-container');
-        if (motoContainer.hasChildNodes()) {
-            motoContainer.removeChild(motoContainer.lastChild);
-        }
+    
+    moto.addEventListener('mouseleave', () => {
+        motos.forEach(b => b.style.backgroundImage = '');
     });
 });
 
+// 비회원 주문 버튼 클릭 시 모달 열기
+const guestOrderBtn = document.getElementById('guestOrderBtn');
+const modal = document.getElementById('modal');
+const closeModalBtn = document.getElementById('closeModalBtn');
+const guestIdElement = document.getElementById('guestId');
+const orderArea = document.getElementById('order-area');
+const totalAmountElement = document.getElementById('totalAmount');
+let orderItems = []; // 주문한 상품 목록
 
-const video = document.getElementById('ad-video');
-const playPauseBtn = document.getElementById('play-pause');
-const stopBtn = document.getElementById('stop');
-const rewindBtn = document.getElementById('rewind');
-const fastForwardBtn = document.getElementById('fast-forward');
-const slowDownBtn = document.getElementById('slow-down');
-const speedUpBtn = document.getElementById('speed-up');
-const resetSpeedBtn = document.getElementById('reset-speed');
-const toggleControlsBtn = document.getElementById('toggle-controls');
-const toggleLoopBtn = document.getElementById('toggle-loop');
-const toggleAutoplayBtn = document.getElementById('toggle-autoplay');
+// 비회원 ID 생성 (랜덤 6자리)
+function generateGuestId() {
+  return Math.random().toString(36).substring(2, 8).toUpperCase();
+}
 
-let isPlaying = false;
-let isControlsVisible = true;
-let isLooping = false;
-let isAutoplay = false;
+// 모달 열기
+guestOrderBtn.addEventListener('click', () => {
+  modal.style.display = 'block';
+  guestIdElement.textContent = generateGuestId();
+});
 
-// 재생 / 일시정지
-playPauseBtn.addEventListener('click', () => {
-  if (video.paused) {
-    video.play();
-    playPauseBtn.textContent = '일시정지';
-  } else {
-    video.pause();
-    playPauseBtn.textContent = '재생';
+// 모달 닫기
+closeModalBtn.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+// 드래그 앤 드롭 처리
+const products = document.querySelectorAll('.product');
+products.forEach(product => {
+  product.addEventListener('dragstart', (e) => {
+    e.dataTransfer.setData('text', e.target.innerHTML);
+    e.target.classList.add('dragged');
+  });
+
+  product.addEventListener('dragend', (e) => {
+    e.target.classList.remove('dragged');
+  });
+});
+
+// 드래그가 주문 영역 밖으로 벗어날 때
+orderArea.addEventListener('dragover', (e) => {
+  e.preventDefault(); // 기본 동작 방지
+});
+
+// 상품이 드래그 앤 드롭되어 주문영역에 추가
+orderArea.addEventListener('drop', (e) => {
+  e.preventDefault();
+  const data = e.dataTransfer.getData('text');
+  const productElement = document.createElement('div');
+  productElement.innerHTML = data;
+  orderArea.appendChild(productElement);
+
+  // 상품 정보 추가
+  const productPrice = parseInt(productElement.querySelector('p').textContent.split(':')[1].replace('원', '').trim());
+  const productName = productElement.querySelector('p').textContent;
+
+  // 주문 항목 배열에 추가
+  orderItems.push({ name: productName, price: productPrice, quantity: 1 });
+
+  // 전시 영역 상품 반투명 처리
+  e.target.classList.add('dragged');
+
+  updateTotalAmount();
+});
+
+// 주문영역 밖으로 드래그되었을 때 상품 삭제 및 주문 목록에서 제거
+orderArea.addEventListener('dragleave', (e) => {
+  const productElement = e.target;
+  if (productElement && productElement.classList.contains('dragged')) {
+    // 주문 영역에서 드래그된 상품을 제거
+    const index = orderItems.findIndex(item => item.name === productElement.querySelector('p').textContent);
+    if (index !== -1) {
+      orderItems.splice(index, 1); // 주문 목록에서 제거
+      productElement.remove(); // 화면에서 상품 삭제
+      updateTotalAmount(); // 금액 갱신
+    }
   }
 });
 
-// 정지
-stopBtn.addEventListener('click', () => {
-  video.pause();
-  video.currentTime = 0;
-  playPauseBtn.textContent = '재생';
-});
-
-// 되감기 (10초씩)
-rewindBtn.addEventListener('click', () => {
-  video.currentTime = Math.max(0, video.currentTime - 10);
-});
-
-// 빨리감기 (10초씩)
-fastForwardBtn.addEventListener('click', () => {
-  video.currentTime = Math.min(video.duration, video.currentTime + 10);
-});
-
-// 감속 (0.1배씩)
-slowDownBtn.addEventListener('click', () => {
-  video.playbackRate = Math.max(0.1, video.playbackRate - 0.1);
-});
-
-// 배속 (0.1배씩)
-speedUpBtn.addEventListener('click', () => {
-  video.playbackRate += 0.1;
-});
-
-// 배속 원래대로 돌리기
-resetSpeedBtn.addEventListener('click', () => {
-  video.playbackRate = 1;
-});
-
-// 컨트롤러 보이기/숨기기
-toggleControlsBtn.addEventListener('click', () => {
-    isControlsVisible = !isControlsVisible;
-    const controls = document.querySelector('.controls');
-    const buttons = controls.querySelectorAll('button');
-  
-    if (isControlsVisible) {
-      // 컨트롤러가 보일 때는 모든 버튼을 보이게
-      buttons.forEach(button => button.style.display = 'inline-block');
-      toggleControlsBtn.textContent = '컨트롤러 숨기기'
-    } else {
-      // 컨트롤러가 숨겨졌을 때는 '컨트롤러 보이기' 버튼만 보이게 하고 나머지 버튼들은 숨기기
-      buttons.forEach(button => {
-        if (button !== toggleControlsBtn) {
-          button.style.display = 'none';
-          toggleControlsBtn.textContent = '컨트롤러 보이기'
-        }
-      });
-    }
+// 총 결제 금액 업데이트
+function updateTotalAmount() {
+  let total = 0;
+  orderItems.forEach(item => {
+    total += item.price * item.quantity;
   });
-  
+  totalAmountElement.textContent = total;
+}
 
-// 반복 켜기/끄기
-toggleLoopBtn.addEventListener('click', () => {
-    isLooping = !isLooping;
-    video.loop = isLooping;
-    // 버튼 텍스트를 '반복 켜기'와 '반복 끄기'로 변경
-    toggleLoopBtn.textContent = isLooping ? '반복 끄기' : '반복 켜기';
-  });
-
-// 자동재생 켜기/끄기
-toggleAutoplayBtn.addEventListener('click', () => {
-    isAutoplay = !isAutoplay;
-    video.autoplay = isAutoplay;
-    // 버튼 텍스트를 '자동재생 켜기'와 '자동재생 끄기'로 변경
-    toggleAutoplayBtn.textContent = isAutoplay ? '자동재생 끄기' : '자동재생 켜기';
-  });
+// 주문하기 버튼 클릭
+const orderBtn = document.getElementById('orderBtn');
+orderBtn.addEventListener('click', () => {
+  modal.style.display = 'none';
+  setTimeout(() => {
+    alert(`방금 비회원 ${guestIdElement.textContent}님이 ${totalAmountElement.textContent}원을 결제하셨습니다!`);
+  }, 1000);
+});

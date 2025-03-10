@@ -18,7 +18,6 @@ header {
     top: 0;
     left: 0;
     z-index: 1000;
-    flex-wrap: wrap;
 }
 
 .logo img {
@@ -29,7 +28,6 @@ header {
 .util-menu {
     display: flex;
     list-style: none;
-    flex-wrap: wrap;
     justify-content: center;
 }
 
@@ -107,39 +105,38 @@ header {
     width: 100%;
     display: flex;
     justify-content: center;
+    gap: 10px;
 }
 
 .motos {
     width: 300px;
     height: 700px;
-    background-color: #333;
-    margin-top: 130px;
-    margin-left: 30px;
+    margin-top: 150px;
+    background-size: 750px 100%; /* 전체 이미지 크기 설정 */
+    background-position: center;
+    transition: background 0.3s ease-in-out;
+    /* background-repeat: no-repeat; */
+    background-size: cover;
 }
 
 #moto1 {
     background-image: url(./선수제공파일/B-Module/나눔혁신.jpg);
-    background-size: cover;
 }
 
 #moto2 {
     background-image: url(./선수제공파일/B-Module/미래혁신.jpg);
-    background-size: cover;
 }
 
 #moto3 {
     background-image: url(./선수제공파일/B-Module/보안혁신.jpg);
-    background-size: cover;
 }
 
 #moto4 {
     background-image: url(./선수제공파일/B-Module/신뢰혁신.jpg);
-    background-size: cover;
 }
 
 #moto5 {
     background-image: url(./선수제공파일/B-Module/환경혁신.jpg);
-    background-size: cover;
 }
 
 /* B모듈 모토 끝 */
@@ -184,5 +181,58 @@ button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    max-width: 1000px;
+    max-height: 800px;
+    overflow: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  button {
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  #exhibit{
+    display: flex;
+  }
+  
+  .product {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+
+  .product img{
+    height: 200px;
+  }
+
+  #order-area img{
+    height: 200px;
+  }
+  
+  .product.dragged {
+    opacity: 0.5;
+  }
 
 /* B모듈 전체 상품 페이지 끝 */
