@@ -23,7 +23,7 @@ const orderArea = document.getElementById('order-area');
 const totalAmountElement = document.getElementById('totalAmount');
 
 // 주문한 상품 목록을 저장할 배열
-let orderItems = [];
+let orderItems = []; 
 
 // 상품 정보 하드코딩 (이름, 가격, 이미지)
 const productsInfo = [
@@ -54,6 +54,12 @@ products.forEach(function(product, index) {
   product.setAttribute('draggable', 'true'); // 상품을 드래그할 수 있게 설정
   product.addEventListener('dragstart', function(e) {
     e.dataTransfer.setData('text', index); // 상품의 인덱스를 저장
+    // 상품 반투명 처리 (전시 영역에서)
+    e.target.style.opacity = '0.5'; 
+  });
+
+  product.addEventListener('dragend', function(e) {
+    e.target.style.opacity = '1'; // 드래그가 끝난 후 원래 상태로 복원
   });
 });
 
@@ -72,12 +78,13 @@ orderArea.addEventListener('drop', function(e) {
   // 새 상품 요소 만들기
   const productElement = document.createElement('div');
   productElement.classList.add('product-item');
-
+  
   // 이미지, 이름, 가격을 포함한 상품 정보 HTML 생성
   productElement.innerHTML = `
     <img src="${product.image}" alt="${product.name}" width="50" height="50">
     <p>${product.name}: ${product.price}원</p>
   `;
+  
   orderArea.appendChild(productElement); // 주문 영역에 추가
 
   // 하드코딩된 상품을 주문 목록에 추가
@@ -91,7 +98,6 @@ function updateTotalAmount() {
   let total = 0;
   orderItems.forEach(function(item) {
     total += item.price; // 각 상품의 가격 합산
-    console.log("가격계산")
   });
   totalAmountElement.textContent = total; // 화면에 총 금액 표시
 }
@@ -101,7 +107,27 @@ const orderBtn = document.getElementById('orderBtn');
 orderBtn.addEventListener('click', function() {
   modal.style.display = 'none'; // 모달 닫기
   setTimeout(function() {
-    alert(`방금 비회원 ${guestIdElement.textContent}님이 ${totalAmountElement.textContent}원을 결제하셨습니다!`);
+    alert(`방금 비회원 ${guestIdElement.textContent}님이 ${totalAmountElement.textContent}을 결제하셨습니다!`);
   }, 1000);
 });
 
+// 주문 영역에서 드래그한 상품이 영역 밖으로 나갔을 때 상품 삭제 및 주문 목록에서 제거
+modal.addEventListener('dragleave', function(e) {
+  const productElement = e.target;
+  if (productElement.classList.contains('product-item')) {
+    // 주문 목록에서 해당 상품을 제거
+    const index = orderItems.findIndex(item => item.name === productElement.querySelector('p').textContent.split(':')[0]);
+    if (index !== -1) {
+      orderItems.splice(index, 1); // 배열에서 제거
+      productElement.remove(); // 화면에서 상품 제거
+      updateTotalAmount(); // 금액 갱신
+    }
+
+    // 전시 영역에서 반투명 처리된 상품 복원
+    const productName = productElement.querySelector('p').textContent.split(':')[0];
+    const originalProduct = Array.from(products).find(prod => prod.querySelector('p').textContent === productName);
+    if (originalProduct) {
+      originalProduct.style.opacity = '1'; // 상품 복원
+    }
+  }
+});

@@ -240,6 +240,7 @@ button:disabled {
     height: 100px;
     width: 100%;
     display: flex;
+    padding-bottom: 250px;
     gap: 10px;
   }
 
@@ -250,10 +251,6 @@ button:disabled {
   
   .product.dragged {
     opacity: 0.5;
-  }
-
-  #payment{
-    margin-top: 130px;
   }
 
 /* B모듈 전체 상품 페이지 끝 */
