@@ -152,6 +152,81 @@ input[name="slide"] {
 
 /* 슬라이드 끝 */
 
+/* 콘텐츠 영역 판매 상품 시작 */
+
+.contnets{
+}
+
+.contents h3{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.sales-product{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.sales-product-wrap{
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sales-product img{
+    height: 400px;
+    width: 400px;
+}
+
+/* 콘텐츠 영역 판매 상품 끝 */
+
+/* 콘텐츠 영역 공지사항 시작 */
+.notice {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.notice-list ul {
+    list-style: none;
+    padding: 0;
+    display: none;
+}
+
+.notice-list ul:target {
+    display: block;
+}
+
+.notice-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination .page-link {
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+}
+
+.pagination .page-link:hover {
+    background-color: #ddd;
+}
+
+.pagination .page-link:active {
+    background-color: #ccc;
+}
+
+/* 콘텐츠 영역 공지사항 끝 */
+
 
 /* B모듈 모토 시작 */
 #moto-container {
