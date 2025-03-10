@@ -45,6 +45,49 @@
         </div>
     </div>
 
+    <div>
+        <button id="guestOrderBtn">비회원 주문</button>
+    </div>
+
+    <div id="modal" class="modal-overlay">
+        <div class="modal-content">
+            <div id="member-info">
+                <p>비회원 ID: <span id="guestId"></span></p>
+            </div>
+            <h3>전시 영역</h3>
+            <div id="exhibit">
+                <!-- 상품 목록 -->
+                <div class="product" draggable="true">
+                    <div>
+                        <img src="../선수제공파일/공통/images/03.jpg" alt="상품 1">
+                    </div>
+                    <p>상품 1</p>
+                    <p>가격: 10000원</p>
+                </div>
+                <div class="product" draggable="true">
+                    <img src="../선수제공파일/공통/images/04.jpg" alt="상품 1">
+                    <p>상품 2</p>
+                    <p>가격: 5000원</p>
+                </div>
+                <div class="product" draggable="true">
+                    <img src="../선수제공파일/공통/images/05.jpg" alt="상품 1">
+                    <p>상품 3</p>
+                    <p>가격: 8000원</p>
+                </div>
+            </div>
+            <div id="order-area">
+                <h3>주문 영역</h3>
+                <!-- 주문된 상품들이 여기에 추가됨 -->
+            </div>
+            <div id="payment">
+                <h3>결제 영역</h3>
+                <p>총 결제 금액: <span id="totalAmount">0</span> 원</p>
+            </div>
+            <button id="orderBtn">주문하기</button>
+            <button id="closeModalBtn">닫기</button>
+        </div>
+    </div>
+
     <script src="../script.js"></script>
 
 </body>
