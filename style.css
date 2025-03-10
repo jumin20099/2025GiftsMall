@@ -355,6 +355,21 @@ input[name="slide"] {
     background-image: url(./선수제공파일/B-Module/환경혁신.jpg);
 }
 
+#introduction {
+    padding: 20px;
+    line-height: 1.6;
+    margin-left: 160px;
+}
+
+#introduction h2 {
+    color: #0073e6;
+    margin-bottom: 10px;
+}
+
+#introduction p {
+    margin-bottom: 20px;
+}
+
 /* B모듈 모토 끝 */
 
 /* B모듈 전체 상품 페이지 시작 */
