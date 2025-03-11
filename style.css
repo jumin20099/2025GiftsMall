@@ -291,6 +291,36 @@ input[name="slide"] {
 }
 /* 소개 페이지 끝 */
 
+/* 전체 상품 시작 */
+
+.all-products-container{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.all-products img{
+    width: 300px;
+    height: 250px;
+}
+
+.popular p span{
+    text-decoration: line-through;
+}
+
+.buttons{
+    display: flex;
+}
+
+.buttons button{
+    background: #007BFF;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* 전체 상품 끝 */
+
 /* 푸터 시작 */
 #footer {
     background: #222;
