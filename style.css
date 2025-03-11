@@ -187,7 +187,7 @@ input[name="slide"] {
 
 /* 콘텐츠 영역 공지사항 시작 */
 .notice {
-    width: 80%;
+    width: 65%;
     margin: 0 auto;
 }
 
@@ -268,6 +268,28 @@ input[name="slide"] {
 }
 
 /* 콘텐츠 영역 상품입점/제휴문의 끝 */
+
+/* 소개 페이지 시작 */
+#introduction {
+    padding: 20px;
+    line-height: 1.6;
+    margin-left: 160px;
+    margin-top: 200px;
+}
+
+#introduction h2 {
+    color: #0073e6;
+    margin-bottom: 10px;
+}
+
+#introduction p {
+    margin-bottom: 20px;
+}
+
+#introduction img{
+    width: 400px;
+}
+/* 소개 페이지 끝 */
 
 /* 푸터 시작 */
 #footer {
@@ -355,20 +377,6 @@ input[name="slide"] {
     background-image: url(./선수제공파일/B-Module/환경혁신.jpg);
 }
 
-#introduction {
-    padding: 20px;
-    line-height: 1.6;
-    margin-left: 160px;
-}
-
-#introduction h2 {
-    color: #0073e6;
-    margin-bottom: 10px;
-}
-
-#introduction p {
-    margin-bottom: 20px;
-}
 
 /* B모듈 모토 끝 */
 
