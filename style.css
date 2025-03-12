@@ -71,7 +71,8 @@ header {
     height: 80px;
 }
 
-.nav {
+.nav,
+.util-menu {
     display: flex;
     list-style: none;
     justify-content: center;
@@ -83,7 +84,8 @@ header {
     position: relative;
 }
 
-.nav a {
+.nav a,
+.util-menu a{
     color: white;
     text-decoration: none;
     font-size: 18px;
@@ -92,7 +94,8 @@ header {
     transition: color 0.3s;
 }
 
-.nav a:hover {
+.nav a:hover,
+.util-menu a:hover {
     color: #ffcc00;
 }
 
@@ -312,33 +315,34 @@ input[name="slide"] {
     margin-bottom: 20px;
 }
 
-#introduction img{
+#introduction img {
     width: 400px;
 }
+
 /* 소개 페이지 끝 */
 
 /* 전체 상품 시작 */
 
-.all-products-container{
+.all-products-container {
     display: flex;
     justify-content: center;
     gap: 20px;
 }
 
-.all-products img{
+.all-products img {
     width: 300px;
     height: 250px;
 }
 
-.popular p span{
+.popular p span {
     text-decoration: line-through;
 }
 
-.buttons{
+.buttons {
     display: flex;
 }
 
-.buttons button{
+.buttons button {
     background: #007BFF;
     color: #fff;
     cursor: pointer;
@@ -346,6 +350,60 @@ input[name="slide"] {
 }
 
 /* 전체 상품 끝 */
+
+/* 인기상품 시작 */
+
+#popular-products-container {
+    display: flex;
+}
+
+/* 인기상품 시작 */
+
+/* 장바구니 시작 */
+#cart-container {
+    margin-top: 120px;
+    padding: 100px;
+}
+
+#cart-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#cart-container table th,
+table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#cart-container table th {
+    background-color: #f2f2f2;
+}
+
+.quantity-input {
+    width: 50px;
+    text-align: center;
+}
+
+.total {
+    text-align: right;
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+.purchase-button {
+    background: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+/* 장바구니 끝 */
 
 /* 푸터 시작 */
 #footer {
