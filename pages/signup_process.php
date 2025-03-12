@@ -23,6 +23,4 @@ if ($conn->query($sql)) {
 } else {
     exit("회원가입 실패");
 }
-
-$conn->close();
 ?>

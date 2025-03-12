@@ -9,28 +9,6 @@
 </head>
 
 <body>
-    <header>
-        <div class="logo"><img src="../images/GIFTS Mall Logo.PNG" alt="헤더 로고"></div>
-        <ul class="nav">
-            <li><a href="../pages/index.html">HOME</a></li>
-            <li><a href="../pages/introduction.html">소개</a></li>
-            <li class="dropdown">
-                <a href="../pages/allProducts.html">판매상품</a>
-                <ul class="hidden-headers">
-                    <li><a href="../pages/allProducts.html">전체상품</a></li>
-                    <li><a href="../pages/popularProducts.html">인기상품</a></li>
-                </ul>
-            </li>
-            <li><a href="#">가맹점</a></li>
-            <li><a href="../pages/cart.html">장바구니</a></li>
-        </ul>
-        <div class="util-menu">
-            <a href="#">로그인</a>
-            <a href="#">회원가입</a>
-            <a href="#">관리자</a>
-        </div>
-    </header>
-
     <div class="video-container">
         <video id="ad-video" width="100%" height="auto" controls>
             <source src="../선수제공파일/B-Module/AD.mp4" type="video/mp4">

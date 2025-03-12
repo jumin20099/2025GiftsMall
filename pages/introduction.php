@@ -9,27 +9,6 @@
 </head>
 
 <body>
-    <header>
-        <div class="logo"><img src="../images/GIFTS Mall Logo.PNG" alt="헤더 로고"></div>
-        <ul class="nav">
-            <li><a href="../pages/index.html">HOME</a></li>
-            <li><a href="../pages/introduction.html">소개</a></li>
-            <li class="dropdown">
-                <a href="../pages/allProducts.html">판매상품</a>
-                <ul class="hidden-headers">
-                    <li><a href="../pages/allProducts.html">전체상품</a></li>
-                    <li><a href="../pages/popularProducts.html">인기상품</a></li>
-                </ul>
-            </li>
-            <li><a href="#">가맹점</a></li>
-            <li><a href="../pages/cart.html">장바구니</a></li>
-        </ul>
-        <div class="util-menu">
-            <a href="#">로그인</a>
-            <a href="#">회원가입</a>
-            <a href="#">관리자</a>
-        </div>
-    </header>
 
     <div id="moto-container">
         <div class="motos" id="moto1" data-image-url="../선수제공파일/B-Module/나눔혁신.jpg" data-index="0"></div>
@@ -60,46 +39,6 @@
         <p>고객이 라이프스타일 전반에서 자신만의 가치와 취향을 반영한 브랜드를 탐색할 수 있습니다.<br>
             이러한 고객 경험의 확장을 통해 우리는 종합 라이프스타일 플랫폼으로 도약합니다.</p>
     </section>
-
-    <footer id="footer">
-        <div class="footer-logo">
-            <img src="../images/GIFTS Mall Logo.PNG" alt="GIFTS:Mall Logo">
-        </div>
-        <div class="sns-icons">
-            <a href="#" class="sns-icon" id="facebook"></a>
-            <a href="#" class="sns-icon" id="twitter"></a>
-            <a href="#" class="sns-icon" id="instagram"></a>
-            <a href="#" class="sns-icon" id="youtube"></a>
-            <a href="#" class="sns-icon" id="linkedin"></a>
-        </div>
-        <div class="customer-service">
-            <h3>고객센터 이용안내</h3>
-            <p>온라인몰 고객센터: 1580-8282</p>
-            <p>매장고객센터: 1577-8254</p>
-            <p>운영시간: 평일 09:00 - 18:00</p>
-            <p>주말 및 공휴일은 1:1문의하기를 이용해주세요.<br>업무가 시작되면 바로 처리해드립니다.</p>
-        </div>
-        <div class="footer-links">
-            <a href="#">개인정보처리방침</a> |
-            <a href="#">이용약관.법적고지</a> |
-            <a href="#">청소년보호방침</a> |
-            <a href="#">이메일무단수집거부</a> |
-            <a href="#">사이트맵</a> |
-            <a href="#">채용</a>
-        </div>
-        <div class="company-info">
-            <p>(주)GIFTS:Mall | 사업자등록번호: 809-81-01157 | 대표이사: 황기영</p>
-            <p>주소: 서울특별시 용산구 한강대로 123, 40층</p>
-            <p>본사 대표전화: 02-123-4567 | 가맹상담전화: 02-123-4568</p>
-            <p>COPYRIGHTⓒ 2024 GIFTS:MALL KOREA INC. ALL RIGHTS RESERVED</p>
-        </div>
-        <div class="safety-service">
-            <p>지방은행구매안전서비스</p>
-            <p>GIFTS:Mall은 현금 결제한 금액에 대해 지방은행과 채무지급보증 계약을 체결하여 안전한 거래를 보장하고 있습니다.</p>
-            <a href="#">서비스 가입사실 확인 ></a>
-        </div>
-    </footer>
-
 
     <script src="../script.js"></script>
 </body>
