@@ -99,7 +99,6 @@ header {
     color: #ffcc00;
 }
 
-/* 드롭다운 메뉴 기본 숨김 */
 .hidden-headers {
     display: none;
     position: absolute;
@@ -357,7 +356,7 @@ input[name="slide"] {
     display: flex;
 }
 
-/* 인기상품 시작 */
+/* 인기상품 끝 */
 
 /* 장바구니 시작 */
 #cart-container {
@@ -389,8 +388,6 @@ table td {
 
 .total {
     text-align: right;
-    font-size: 1.2em;
-    margin-top: 10px;
 }
 
 .purchase-button {
