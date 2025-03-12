@@ -71,29 +71,55 @@ header {
     height: 80px;
 }
 
-.nav,
-.util-menu {
+.nav {
     display: flex;
     list-style: none;
     justify-content: center;
+    padding: 0;
+    margin: 0;
 }
 
-.nav li,
-.util-menu a {
-    margin: 10px;
+.nav li {
+    position: relative;
 }
 
-.nav a,
-.util-menu a {
+.nav a {
     color: white;
     text-decoration: none;
     font-size: 18px;
+    padding: 10px;
+    display: block;
     transition: color 0.3s;
 }
 
-.nav a:hover,
-.util-menu a:hover {
+.nav a:hover {
     color: #ffcc00;
+}
+
+/* 드롭다운 메뉴 기본 숨김 */
+.hidden-headers {
+    display: none;
+    position: absolute;
+    top: 100%;
+    background: #333;
+    width: 150px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.hidden-headers li {
+    list-style: none;
+    padding: 5px;
+}
+
+.hidden-headers a {
+    color: white;
+    display: block;
+    padding: 10px;
+}
+
+.dropdown:hover .hidden-headers {
+    display: block;
 }
 
 /* 헤더 끝 */
