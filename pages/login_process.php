@@ -28,6 +28,6 @@ if ($input_hash !== $row['hashed_password']) {
 $_SESSION['user_id'] = $row['user_id'];
 $_SESSION['username'] = $row['username'];
 $_SESSION['role'] = $row['role'];
-header("Location: ./index.html");
+header("Location: /main");
 exit;
 ?>

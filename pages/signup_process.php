@@ -18,7 +18,7 @@ if ($conn->query($sql)) {
     $_SESSION['user_id'] = $conn->insert_id;
     $_SESSION['username'] = $username;
     $_SESSION['role'] = 'user';
-    header("Location: ./index.html");
+    header("Location: main");
     exit;
 } else {
     exit("회원가입 실패");
