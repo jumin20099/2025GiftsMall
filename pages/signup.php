@@ -17,7 +17,7 @@
     </div>
     <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <form action="signup_process.php" method="post">
+            <form action="signupProcess" method="post">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="signupModalLabel">회원가입</h5>
