@@ -35,6 +35,12 @@ switch ($resource[1]) {
     case 'signup':
         $pages = './pages/signup.php';
         break;
+    case 'signupProcess':
+        $pages = './pages/signup_process.php';
+        break;
+    case 'loginProcess':
+        $pages = './pages/login_process.php';
+        break;
 
     default:
         echo "ㄴㄴ";
