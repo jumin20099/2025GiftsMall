@@ -33,8 +33,8 @@ $is_admin = (isset($_SESSION['role']) && $_SESSION['role'] === 'admin');
             <li class="dropdown">
                 <a href="#">관리자</a>
                 <ul class="hidden-headers">
-                    <li><a href="notice_manage.php">공지사항관리</a></li>
-                    <li><a href="product_manage.php">판매상품관리</a></li>
+                    <li><a href="manageNotice">공지사항관리</a></li>
+                    <li><a href="manageProducts">판매상품관리</a></li>
                 </ul>
             </li>
             <?php endif; ?>
