@@ -12,12 +12,12 @@
       로그인
     </button>
     <br>
-    <a href="./signup.php">아직 가입하지 않으셨나요?</a>
+    <a href="signup">아직 가입하지 않으셨나요?</a>
   </div>
 
   <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <form action="login_process.php" method="post">
+      <form action="loginProcess" method="post">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="loginModalLabel">로그인</h5>
@@ -37,43 +37,6 @@
           </div>
           <div class="modal-footer">
             <button type="submit" class="btn btn-primary">로그인</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <form action="signup_process.php" method="post">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="signupModalLabel">회원가입</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="닫기">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="form-group">
-              <label for="signupUsername">아이디</label>
-              <input type="text" class="form-control" id="signupUsername" name="username" placeholder="아이디 입력" required>
-            </div>
-            <div class="form-group">
-              <label for="signupPassword">비밀번호</label>
-              <input type="password" class="form-control" id="signupPassword" name="password" placeholder="비밀번호 입력" required>
-            </div>
-            <div class="form-group">
-              <label for="signupName">이름</label>
-              <input type="text" class="form-control" id="signupName" name="name" placeholder="이름 입력" required>
-            </div>
-            <div class="form-group">
-              <label for="signupEmail">이메일</label>
-              <input type="email" class="form-control" id="signupEmail" name="email" placeholder="이메일 입력" required>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-success">회원가입</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
           </div>
         </div>
