@@ -15,7 +15,7 @@
             회원가입
         </button>
     </div>
-    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
+    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true" style="padding-top: 400px;">
         <div class="modal-dialog" role="document">
             <form action="signupProcess" method="post">
                 <div class="modal-content">
