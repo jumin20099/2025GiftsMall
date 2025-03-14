@@ -1,7 +1,7 @@
 <?php
-// session_start();
 
 $is_admin = (isset($_SESSION['role']) && $_SESSION['role'] === 'admin');
+$is_login = isset($_SESSION['role']);
 
 ?>
 <!DOCTYPE html>
@@ -40,8 +40,8 @@ $is_admin = (isset($_SESSION['role']) && $_SESSION['role'] === 'admin');
             <?php endif; ?>
         </ul>
         <div class="util-menu">
-            <?php if ($is_admin): ?>
-                <a href="logout.php">로그아웃</a>
+            <?php if ($is_login): ?>
+                <a href="logout">로그아웃</a>
             <?php else: ?>
                 <a href="login">로그인</a>
                 <a href="signup">회원가입</a>
