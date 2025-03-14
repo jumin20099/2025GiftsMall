@@ -15,7 +15,7 @@
     <a href="signup">아직 가입하지 않으셨나요?</a>
   </div>
 
-  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true" style="padding-top: 400px;">
     <div class="modal-dialog" role="document">
       <form action="loginProcess" method="post">
         <div class="modal-content">
