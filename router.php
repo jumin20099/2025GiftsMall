@@ -41,6 +41,12 @@ switch ($resource[1]) {
     case 'loginProcess':
         $pages = './pages/login_process.php';
         break;
+    case 'manageNotice':
+        $pages = './pages/manageNotice.php';
+        break;
+    case 'manageProducts':
+        $pages = './pages/manageProducts.php';
+        break;
 
     default:
         echo "ㄴㄴ";
