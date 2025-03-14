@@ -12,14 +12,16 @@ $path[1] = isset($path[1]) ? $path[1] : null;
 $resource = explode("/", $path[0]);
 $pages = "";
 
-include("./components/header.php");
 
 switch ($resource[1]) {
-    case '':
+    case 'main':
         $pages = './pages/index.php';
         break;
-    case 'allProduct':
+    case 'allProducts':
         $pages = './pages/allProducts.php';
+        break;
+    case 'popularProducts':
+        $pages = './pages/popularProducts.php';
         break;
     case 'cart':
         $pages = './pages/cart.php';
@@ -38,6 +40,6 @@ switch ($resource[1]) {
         echo "ㄴㄴ";
         exit;
 }
-include("./components/footer.php");
+include("./components/header.php");
 include($pages);
-?>
+include("./components/footer.php");
