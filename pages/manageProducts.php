@@ -70,7 +70,7 @@ $result = $conn->query($sql);
 </head>
 
 <body>
-    <div class="container mt-5">
+    <div class="container mt-5" style="padding-top: 100px;">
         <h2>판매상품 관리</h2>
 
         <form method="POST" class="mb-3">
