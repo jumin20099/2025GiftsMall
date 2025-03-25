@@ -222,11 +222,6 @@ input[name="slide"] {
 .notice-list ul {
     list-style: none;
     padding: 0;
-    display: none;
-}
-
-.notice-list ul:target {
-    display: block;
 }
 
 .notice-list li {
@@ -237,24 +232,6 @@ input[name="slide"] {
 .pagination {
     text-align: center;
     margin-top: 20px;
-}
-
-.pagination .page-link {
-    padding: 10px 15px;
-    margin: 0 5px;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-    text-decoration: none;
-    color: #333;
-    cursor: pointer;
-}
-
-.pagination .page-link:hover {
-    background-color: #ddd;
-}
-
-.pagination .page-link:active {
-    background-color: #ccc;
 }
 
 /* 콘텐츠 영역 공지사항 끝 */
