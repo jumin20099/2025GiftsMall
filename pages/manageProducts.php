@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action'])) {
         $sql = "DELETE FROM products WHERE product_id=$id";
         $conn->query($sql);
     }
-    header("manageProducts");
+    header("Location: manageNotice");
     exit;
 }
 

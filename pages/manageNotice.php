@@ -28,8 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action'])) {
         $sql = "DELETE FROM notices WHERE notice_id=$notice_id";
         $conn->query($sql);
     }
-    // 중복 전송 방지
-    header("Location: " . $_SERVER['PHP_SELF'] . "?" . $_SERVER['QUERY_STRING']);
+    header("Location: manageNotice");
     exit;
 }
 
