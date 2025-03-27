@@ -10,7 +10,7 @@
 
 <body>
     <div class="video-container">
-        <video id="ad-video" width="100%" height="auto" controls>
+        <video id="ad-video" width="100%" height="auto">
             <source src="../선수제공파일/B-Module/AD.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
